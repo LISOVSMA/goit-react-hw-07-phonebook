@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, Label, Input, Button, Span } from './ContactForm.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContact } from 'redux/selectors';
+import { selectContact, selectIsLoading } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 import Notiflix from 'notiflix';
 
@@ -10,6 +10,7 @@ const ContactForm = () => {
   const [number, setNumber] = useState('');
 
   const contacts = useSelector(selectContact);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -73,7 +74,9 @@ const ContactForm = () => {
           required
         />
       </Label>
-      <Button type="submit">Add to contacts</Button>
+      <Button type="submit" disabled={isLoading}>
+        Add to contacts
+      </Button>
     </Form>
   );
 };
