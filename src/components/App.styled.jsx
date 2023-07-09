@@ -13,3 +13,8 @@ export const Title = styled.h1`
   text-shadow: ${props => `${props.theme.colors.shadow} 2px 3px 4px`};
   margin: ${props => `${props.theme.spacing(5)} 0`};
 `;
+
+export const Wrapper = styled.div`
+  text-align: center;
+  font-size: ${props => props.theme.spacing(8)};
+`;

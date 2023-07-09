@@ -1,14 +1,13 @@
-import React from 'react';
 import { FilterForm, FilterLabel } from './Filter.styled';
 import { Input, Span } from '../ContactForm/ContactForm.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 import { changeFilter } from 'redux/filterSlice';
 
 const Filter = () => {
-  const value = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
-  const onChange = e => {
+  const handleChange = e => {
     const normalizedValue = e.target.value.toLowerCase();
     dispatch(changeFilter(normalizedValue));
   };
@@ -19,8 +18,8 @@ const Filter = () => {
         <Span>Find contacts by name</Span>
         <Input
           type="name"
-          value={value}
-          onChange={onChange}
+          value={filter}
+          onChange={handleChange}
           placeholder="Please enter a name to search"
         />
       </FilterLabel>

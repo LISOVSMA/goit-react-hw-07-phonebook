@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Form, Label, Input, Button, Span } from './ContactForm.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleContact } from 'redux/selectors';
-import { addContact } from 'redux/contactSlice';
+import { selectContact } from 'redux/selectors';
+import { addContact } from 'redux/operations';
 import Notiflix from 'notiflix';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const contacts = useSelector(getVisibleContact);
+  const contacts = useSelector(selectContact);
   const dispatch = useDispatch();
 
   const handleChange = e => {
