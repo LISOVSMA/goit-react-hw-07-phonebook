@@ -5,7 +5,7 @@ import { selectFilter } from 'redux/selectors';
 import { changeFilter } from 'redux/filterSlice';
 
 const Filter = () => {
-  const filter = useSelector(selectFilter);
+  const value = useSelector(selectFilter);
   const dispatch = useDispatch();
   const handleChange = e => {
     const normalizedValue = e.target.value.toLowerCase();
@@ -17,8 +17,8 @@ const Filter = () => {
       <FilterLabel>
         <Span>Find contacts by name</Span>
         <Input
-          type="name"
-          value={filter}
+          type="text"
+          value={value}
           onChange={handleChange}
           placeholder="Please enter a name to search"
         />

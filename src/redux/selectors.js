@@ -6,7 +6,7 @@ export const selectError = state => state.contacts.error;
 
 export const selectContact = state => state.contacts.items;
 
-export const selectFilter = state => state.filter.filter;
+export const selectFilter = state => state.filter;
 
 export const selectVisibleContacts = createSelector(
   [selectContact, selectFilter],
